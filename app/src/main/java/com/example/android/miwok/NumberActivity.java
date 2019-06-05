@@ -29,7 +29,7 @@ public class NumberActivity extends AppCompatActivity {
         numberWord.add("Nine");
         numberWord.add("Ten");
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, numberWord);
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, R.layout.list_item, numberWord);
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
