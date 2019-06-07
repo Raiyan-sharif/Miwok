@@ -3,7 +3,8 @@ package com.example.android.miwok;
 public class Word {
     private String mDefaultTranslation;
     private String mMiwokTranslation;
-    private int mResourceId;
+    private int mResourceId=NO_IMAGE_PROVIDED;
+    private static final int NO_IMAGE_PROVIDED = -1;
 
     public Word(String defaultTranslation, String miwokTranslation){
         mDefaultTranslation = defaultTranslation;
@@ -31,4 +32,9 @@ public class Word {
     }
 
     public int getResourceId(){ return  mResourceId; }
+
+    public boolean hasImage(){
+
+        return mResourceId != NO_IMAGE_PROVIDED;
+    }
 }

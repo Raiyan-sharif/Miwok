@@ -33,11 +33,14 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         TextView miwokNumberTextView =(TextView) listItemView.findViewById(R.id.miwok_text_view);
         miwokNumberTextView.setText(currentNumber.getMiwokTranslation());
-
         ImageView iconImageView = (ImageView) listItemView.findViewById(R.id.image_icon_word);
-        iconImageView.setImageResource(currentNumber.getResourceId());
-
-
+        if (currentNumber.hasImage()) {
+            iconImageView.setImageResource(currentNumber.getResourceId());
+            iconImageView.setVisibility(View.VISIBLE);
+        }
+        else{
+            iconImageView.setVisibility(View.GONE);
+        }
 
 
         return listItemView;
