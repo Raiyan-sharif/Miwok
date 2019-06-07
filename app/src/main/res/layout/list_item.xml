@@ -4,30 +4,42 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+
+    android:minHeight="@dimen/list_item_height"
+    android:background="@color/tan_background">
     <ImageView
         android:id="@+id/image_icon_word"
-        android:layout_width="88dp"
-        android:layout_height="88dp"
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height"
         android:src="@mipmap/ic_launcher"
-        android:layout_marginRight="16dp"/>
+        android:paddingRight="16dp"/>
     <LinearLayout
+        android:id="@+id/text_container"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="88dp"
-        android:gravity="center">
+        android:layout_height="88dp">
 
         <TextView
             android:id="@+id/miwok_text_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="lutti"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:paddingLeft="16dp"
+            tools:text="lutti"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"/>
 
         <TextView
             android:id="@+id/default_text_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="one"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+            tools:text="one"
+            android:gravity="top"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 
 </LinearLayout>
