@@ -1,19 +1,23 @@
 package com.example.android.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class ColorsActivity extends AppCompatActivity {
+    private MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        ArrayList<Word> numberWord = new ArrayList<Word>();
+        final ArrayList<Word> numberWord = new ArrayList<Word>();
         numberWord.add(new Word("red","weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
         numberWord.add(new Word("green","chokokki", R.drawable.color_green, R.raw.color_green));
         numberWord.add(new Word("brown","ṭakaakki", R.drawable.color_brown, R.raw.color_brown));
@@ -28,11 +32,14 @@ public class ColorsActivity extends AppCompatActivity {
 
         listView.setAdapter(itemsAdapter);
 
-//        for(int i=0; i<numberWord.size();i++){
-//            TextView wordView = new TextView(this);
-//            wordView.setText(numberWord.get(i));
-//            numbersRootView.addView(wordView);
-//        }
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Word word = numberWord.get(position);
+                mMediaPlayer = MediaPlayer.create(ColorsActivity.this, word.getAudioResourceId());
+                mMediaPlayer.start();
+            }
+        });
 
 
 
