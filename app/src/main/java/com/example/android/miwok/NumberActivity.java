@@ -17,7 +17,7 @@ public class NumberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        ArrayList<Word> numberWord = new ArrayList<Word>();
+        final ArrayList<Word> numberWord = new ArrayList<Word>();
         numberWord.add(new Word("one","lutti", R.drawable.number_one, R.raw.number_one));
         numberWord.add(new Word("two","otiiko", R.drawable.number_two, R.raw.number_two));
         numberWord.add(new Word("three","tolookosu", R.drawable.number_three, R.raw.number_three));
@@ -36,7 +36,8 @@ public class NumberActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mMediaPlayer = MediaPlayer.create(NumberActivity.this,R.raw.number_one);
+                Word word = numberWord.get(position);
+                mMediaPlayer = MediaPlayer.create(NumberActivity.this, word.getAudioResourceId());
                 mMediaPlayer.start();
             }
         });
