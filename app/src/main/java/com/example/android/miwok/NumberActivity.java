@@ -20,6 +20,12 @@ public class NumberActivity extends AppCompatActivity {
     };
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
@@ -57,6 +63,7 @@ public class NumberActivity extends AppCompatActivity {
         /**
          * Clean up the media player by releasing its resources.
          */
+
 
 
 
