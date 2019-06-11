@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -11,12 +11,16 @@
         android:id="@+id/image_icon_word"
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height"
+        android:layout_alignParentLeft="true"
         android:src="@mipmap/ic_launcher"
         android:paddingRight="16dp"/>
     <LinearLayout
         android:id="@+id/text_container"
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/image_icon_word"
+        android:paddingLeft="16dp"
         android:layout_height="88dp">
 
         <TextView
@@ -41,5 +45,13 @@
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@android:color/white"/>
     </LinearLayout>
+    <ImageView
+        android:id="@+id/play_btn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/baseline_play_arrow_white_24dp"/>
 
-</LinearLayout>
+</RelativeLayout>
